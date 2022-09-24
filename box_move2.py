@@ -51,8 +51,8 @@ def move_box(box, moveable):
 
 # Main loop ::::::::::::::::::::::::::::::::::::::::::::::::::::
 firkantliste=[]
-for i in range(10):
-    firkantliste[i].append(Square(50, 50, (10, 30), RED))
+for i in range(5):
+    firkantliste.append(Square(50, 50, (10, 30+(50*i)), RED))
 
 
 while True:
@@ -62,12 +62,12 @@ while True:
             sys.exit()
 
     screen.fill(BLACK)
-    move_box(firkant1, firkant1.moveable )
-    firkant1.draw()
+    
+    for i in range(5):
+        move_box(firkantliste[i], firkantliste[i].moveable)
+        firkantliste[i].draw()
 
-    move_box(firkant2, firkant2.moveable )
-    firkant2.draw()
-
+    
     pygame.display.update()
     clock.tick(60)
 
