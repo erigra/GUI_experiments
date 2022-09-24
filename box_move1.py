@@ -13,6 +13,7 @@ gui_font= pygame.font.Font(None,30)
 
 BLACK = (255,255,255)
 RED = (255,0,0)
+GREEN = (0,128,0)
 
 # Classes
 
@@ -39,10 +40,6 @@ class Square():
                     self.pressed = False 
                     return self.moveable   
         
-
-
-
-
 # Functions
 
 # handle box movement
@@ -51,13 +48,11 @@ def move_box(box, moveable):
         box.rect.center = pygame.mouse.get_pos()
 
 
+
 # Main loop ::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 firkant1 = Square(50, 50, (10,30), RED)
-
-
-
+firkant2 = Square(50, 50, (100,150), GREEN)
 
 while True:
     for event in pygame.event.get():
@@ -65,12 +60,13 @@ while True:
             pygame.quit()
             sys.exit()
 
-
-
     screen.fill(BLACK)
     move_box(firkant1, firkant1.moveable )
     firkant1.draw()
-    
+
+    move_box(firkant2, firkant2.moveable )
+    firkant2.draw()
+
     pygame.display.update()
     clock.tick(60)
 
