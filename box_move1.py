@@ -35,8 +35,9 @@ class Square():
             else:
                 if self.pressed == True:          
                     self.moveable = not self.moveable
-                    print (f"Status: {self.moveable}")                          
-                    self.pressed = False    
+                    print (f"Status: {self.moveable}")                                  
+                    self.pressed = False 
+                    return self.moveable   
         
 
 
@@ -44,7 +45,10 @@ class Square():
 
 # Functions
 
-# self.rect.center= pygame.mouse.get_pos()
+# handle box movement
+def move_box(box, moveable):
+    if moveable:
+        box.rect.center = pygame.mouse.get_pos()
 
 
 # Main loop ::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -64,6 +68,7 @@ while True:
 
 
     screen.fill(BLACK)
+    move_box(firkant1, firkant1.moveable )
     firkant1.draw()
     
     pygame.display.update()
